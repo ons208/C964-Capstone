@@ -1,0 +1,306 @@
+/* Global  */
+* {
+  font-family: 'Roboto', Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Setting default margin and padding for body and heading elements */
+body, h1, p, etc. {
+  margin: 0;
+  padding: 0;
+}
+
+/* Body */
+body {
+  background-color: white;
+}
+
+/* Main content area */
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  color: ##3066BE;
+  min-height: 100vh;
+  padding: 50px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* User input form */
+.user_input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  background: #60AFFF;
+  padding: 30px;
+  line-height: 4;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* User input labels */
+.user_input label {
+  position: relative;
+  top: -40px;
+  left: 16px;
+  font-weight: bold;
+  display: block;
+  width: 70%;
+  float: left;
+  clear: left;
+  color: #333333;
+}
+
+/* User input form on select */
+.user_input input,
+.user_input select {
+  padding: 10px;
+  border: 2px solid #003249;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: transparent;
+  width: 30%;
+  float: left;
+}
+
+.user_input select {
+  font-family: 'Roboto', Arial, Helvetica, Tahoma, Verdana, sans-serif;
+}
+
+/* Radio Buttons */
+.radio input{
+  font-family: 'Roboto', Arial, Helvetica, Tahoma, Verdana, sans-serif;
+  font-size: 24px;
+  position: relative;
+  top: 40px;
+}
+
+/* Navigation bar */
+.navbar {
+  background-color: #3498db;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+/* Navbar links */
+.navbar_links {
+  list-style: none;
+}
+
+/* Anchor tags */
+.navbar a:hover {
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: #003249;
+}
+
+/* Submit button */
+button[type="submit"] {
+  padding: 20px 40px;
+  background-color: #007EA7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 32px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:active {
+  background-color: #00546B;
+}
+
+/* Button container */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Image container */
+.image-container {
+  text-align: center;
+}
+
+/* Predicted results */
+.predicted {
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  position: relative;
+  top: -40px;
+  font-weight: bold;
+  display: block;
+  width: 70%;
+  float: left;
+  clear: left;
+}
+
+.predicted.show {
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Result elements */
+.result {
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  position: relative;
+  top: -40px;
+  left: 16px;
+  font-weight: bold;
+  display: block;
+  width: 70%;
+  float: left;
+  clear: left;
+}
+
+.result.show {
+  opacity: 1;
+  position: relative;
+  top: -40px;
+  left: 36px;
+  font-weight: bold;
+  display: block;
+  width: 70%;
+  float: left;
+  clear: left;
+}
+
+/* Radio button */
+.radio {
+  position: relative;
+  top: -4px;
+  left: 10px;
+}
+
+/* Radio buttons and labels */
+.radio-buttons {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -34px;
+}
+
+.radio-buttons .radio-label {
+  position: relative;
+  top: -5px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.radio-buttons input[type="radio"] {
+  margin: 0;
+}
+
+.radio-buttons label {
+  position: relative;
+  top: -5px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.radio-label {
+  position: relative;
+  top: -5px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+/* Selected radio button label */
+.radio-buttons input[type="radio"]:checked + label {
+  font-weight: bold;
+}
+
+/* Calculating message */
+.calculating {
+  position: relative;
+  top: -40px;
+  left: 16px;
+  font-weight: bold;
+  display: block;
+  width: 70%;
+  float: left;
+  clear: left;
+}
+
+/* Metrics container */
+.metrics {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.metrics h2 {
+  color
+
+/* Smaller screens */
+@media(max-width: 1130px) {
+  .radio-buttons{
+    position: relative;
+    left: -14px;
+    top:-28px;
+  }
+  .radio-label{
+    font-size:25px;
+  }
+}
+
+@media(max-width: 960px){
+  .radio-buttons{
+    position: relative;
+    top: -2px;
+    left: -14px;
+  }
+  .radio-label{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+
+  .user_input {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .user_input label {
+    top: -10px;
+  }
+
+  .user_input input,
+  .user_input select {
+    font-size: 14px;
+  }
+}

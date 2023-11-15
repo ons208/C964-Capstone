@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- External stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Title of the Main page -->
+    <title>Salary Prediction</title>
+
+    <!-- Link for custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar">
+        <h1 class="heading"><a href="/">Salary Prediction</a></h1>
+        <!-- List of nav links -->
+        <ul class="navbar_links">
+            <li><a href="{{ url_for('data_page') }}">Data Analysis</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Salary Prediction Form -->
+        <div class="user_input">
+            <form action="/" method="post">
+                <!-- Input field for age -->
+                <label for="age">Age : </label>
+                <input type="number" id="age" name="age" min="18" max="80" value="18" required style="font-family:Arial; font-size: 30px; color: #003249; font-weight: bold;">
+                <br>
+
+                <!-- Input for education level  -->
+                <label for="education">Education Level : </label>
+                <select id="education" name="education" required style="font-family:Arial; font-size: 30px; color: #003249; font-weight: bold;">
+                    <option value="" disabled selected>Select </option>
+                    <option value="High School">High School</option>
+                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                    <option value="Master's Degree">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                </select><br>
+
+                <!-- Input for occupation -->
+                <label for="occupation">Occupation : </label>
+                <select id="occupation" name="occupation" required style="font-family:Arial; font-size: 30px; color: #003249; font-weight: bold;">
+                    <option value="" disabled selected >Select </option>
+                    <!-- Looping through occupation items -->
+                    {% for occupation, count in occupation_dict.items() %}
+                    <option value="{{ occupation }}">{{ occupation }}</option>
+                    {% endfor %}
+                </select><br>
+
+                <!-- Input for years of experience -->
+                <label for="years">Years Of Experience : </label>
+                <input type="number" id="years" name="years" min="0" max="60" value="0" required style="font-family:Arial; font-size: 30px; color: #003249; font-weight: bold;">
+                <br>
+
+                <!-- Input for selecting metric -->
+                <label>Select Metric for Salary Range: </label>
+                <div class="radio-buttons">
+                    <input class="radio" type="radio" id="mae" name="range" value="mae" checked>
+                    <label class='radio-label' for="mae" selected>MAE</label>
+                    <input class="radio" type="radio" id="mse" name="range" value="mse">
+                    <label class='radio-label' for="mse">MSE</label>
+                    <input class="radio" type="radio" id="rmse" name="range" value="rmse">
+                    <label class='radio-label' for="rmse">RMSE</label>
+                </div>
+
+                <!-- Hidden input for selected metric for backend -->
+                <input type="hidden" id="selected_metric" name="selected_metric" value="mae">
+
+                <!-- Submit form -->
+                <button type="submit">Predict Salary</button>
+                <br>
+            </form>
+
+            <!-- Display predicted salary if predicted salary is defined -->
+            {% if predicted_salary is defined %}
+                <p class="calculating"></p>
+                <div class="predicted">
+                    <!-- Display predicted salary and salary range here -->
+                    <h4 class="result">Predicted Salary: {{ predicted_salary }}</h4>
+                    <p class="result">Salary Range: between {{ lower_bound }} and {{ upper_bound }}</p>
+                    <p class="result" id="display_age">If you are {{ age }} years old. </p>
+                </div>
+            {% endif %}
+
+        </div>
+    </main>
+
+    <!-- JS file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- External stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Title of the data page -->
+    <title>Salary Prediction</title>
+
+    <!-- Link for custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar">
+        <h1 class="heading"><a href="/">Salary Prediction</a></h1>
+        <!-- List of nav links -->
+        <ul class="navbar_links">
+            <li><a href='#'>Data Analysis</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Provide information about the dataset -->
+        <div>
+            <p>The dataset comes from this link: <a href="https://www.kaggle.com/datasets/rkiattisak/salaly-prediction-for-beginer">Kaggle Dataset</a></p>
+        </div>
+
+        <!-- Displaying model accuracy metrics -->
+        <div class="metrics">
+            <h2>Model Accuracy Metrics</h2>
+            <p>Mean Absolute Error (MAE): <span id="mae">-</span></p>
+            <p>Mean Squared Error (MSE): <span id="mse">-</span></p>
+            <p>Root Mean Square Error (RMSE): <span id="rmse">-</span></p>
+            <p>Mean Root Mean Square Error (Mean RMSE): <span id="mean_rmse">-</span></p>
+            <p>R-Squared Score: <span id="r_squared">-</span></p>
+            <p>Adjusted R-Squared Score: <span id="adjusted_r_squared">-</span></p>
+        </div>
+
+        <!-- Visualizations (images)-->
+        <div class="image-container">
+            <!-- Heatmap image -->
+            <div class="corr">
+                <img id="corrImage" src="{{ url_for('static', filename='images/corrimage.png') }}" alt="Correlation Image">
+                <p>This heatmap shows the correlation between different features in the dataset.</p>
+            </div>
+
+            <!-- Predicated vs residuals -->
+            <div class="scatter">
+                <img id="scatterImage" src="{{ url_for('static', filename='images/scatter.png') }}" alt="Scatter Image">
+                <p>This scatter plot displays predicted vs. residuals.</p>
+            </div>
+
+            <!-- Histogram of Residuals -->
+            <div class="histplot">
+                <img id="histplotImage" src="{{ url_for('static', filename='images/histplot.png') }}" alt="Histplot Image">
+                <p>This histogram visualizes the distribution of residuals.</p>
+            </div>
+
+            <!-- Actual vs. Predicted image -->
+            <div class="actualvspred">
+                <img id="actualVsPredImage" src="{{ url_for('static', filename='images/actualvspred.png') }}" alt="Actual vs. Predicted Image">
+                <p>Actual vs. Predicted Image Description: This plot compares actual salaries to predicted salaries.</p>
+            </div>
+        </div>
+
+        <!-- JS file -->
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </main>
+</body>
+</html>
