@@ -4,8 +4,7 @@
 import os
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-
-
+from flask_cors import CORS
 # Imports from initialize and train_model
 from data_loader import load_data
 from train_model import train_machine_learning_model
@@ -19,7 +18,14 @@ app.static_url_path = '/static'
 app.static_folder = 'static'
 
 # Initialize app
+CORS(app)
 initialize_app(app)
+
+
+@app.before_request
+def log_request_info():
+    app.logger.debug('Headers: %s', request.headers)
+    app.logger.debug('Body: %s', request.get_data())
 
 
 # Define route for main webpage, handles both GET/POST requests
